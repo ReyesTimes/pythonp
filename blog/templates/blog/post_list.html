@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    Mi primer HTMl con Django
+    {% for post in posts %}
+        <h1>{{ post }}</h1>
+        <hr>
+        <p>{{ post.text }}</p>
+        <a href="{% url 'post_detail' pk=post.pk %}">Leer más</a>
+    {% endfor %}
+
+    <div>
+        <a href="{% url 'post_new' %}">- Crear nuevo post</a>
+    </div>
 </body>
 </html>
